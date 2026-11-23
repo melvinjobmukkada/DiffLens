@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E2 vs E3 Content Comparator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <p class="eyebrow">WEBSITE VALIDATION</p>
+        <h1>DiffLens</h1>
+        <p class="subtitle">
+          See what changed. Understand why. Compare smarter.
+        </p>
+      </header>
+      <section class="url-panel">
+        <div class="field">
+          <label for="e2Url">E2 public URL</label
+          ><input id="e2Url" type="url" />
+        </div>
+        <div class="field">
+          <label for="e3Url">E3 public URL</label
+          ><input id="e3Url" type="url" />
+        </div>
+        <button id="compareBtn">Compare contents</button>
+        <p id="status" role="status"></p>
+      </section>
+      <section id="results" hidden>
+        <div class="toolbar">
+          <div>
+            <h2>Comparison results</h2>
+            <p class="hint">
+              New E2 content is green; old/replaced E3 content is red.
+            </p>
+          </div>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search heading or content (Requestor Changes)"
+          />
+        </div>
+        <div id="summary" class="summary"></div>
+        <div id="comparison" class="comparison"></div>
+        <div id="imageResults" class="comparison"></div>
+      </section>
+    </main>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

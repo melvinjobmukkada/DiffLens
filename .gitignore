@@ -1,0 +1,18 @@
+
+# Dependencies
+node_modules/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Playwright test results
+playwright-report/
+test-results/
+
+# Logs
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,10 @@
+{
+  "name": "e2-e3-content-comparator",
+  "version": "1.1.0",
+  "private": true,
+  "scripts": { "start": "node server.js" },
+  "dependencies": {
+    "express": "^4.21.2",
+    "playwright": "^1.56.1"
+  }
+}
