@@ -7,7 +7,22 @@ const resultsEl = document.getElementById("results");
 const comparisonEl = document.getElementById("comparison");
 const searchInput = document.getElementById("searchInput");
 const summaryEl = document.getElementById("summary");
+// Show comparison completion notification
+function showCompletionToast(message) {
+  const toast = document.getElementById("completionToast");
+  const toastMessage = document.getElementById("toastMessage");
 
+  if (!toast || !toastMessage) return;
+
+  toastMessage.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(showCompletionToast.timeout);
+
+  showCompletionToast.timeout = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 4500);
+}
 let latestData = null;
 
 let aiSummaryPanel;
@@ -271,9 +286,11 @@ async function compare() {
     resultsEl.hidden = false;
     searchInput.value = "";
 
-    statusEl.textContent = "Comparison completed.";
+    statusEl.textContent = "Comparison completed successfully.";
 
     render();
+
+    showCompletionToast("Comparison completed successfully!");
   } catch (error) {
     console.error("Comparison failed:", error);
 
@@ -594,13 +611,31 @@ function render() {
 
   // Render changed text
   if (!filteredSections.length) {
-    const message = document.createElement("p");
+    if (query) {
+      const message = document.createElement("div");
+      message.className = "search-no-results";
+      message.textContent =
+        "No matching text differences found for your search.";
 
-    message.textContent = query
-      ? "No text differences found for your search."
-      : "No text differences found.";
+      comparisonEl.appendChild(message);
+    } else {
+      const message = document.createElement("div");
+      message.className = "no-differences";
 
-    comparisonEl.appendChild(message);
+      const icon = document.createElement("div");
+      icon.className = "success-icon";
+      icon.textContent = "✓";
+
+      const heading = document.createElement("h3");
+      heading.textContent = "No Text Differences Found!";
+
+      const description = document.createElement("p");
+      description.textContent =
+        "The E2 and E3 pages have matching text content. Check image comparison below for image changes.";
+
+      message.append(icon, heading, description);
+      comparisonEl.appendChild(message);
+    }
   } else {
     filteredSections.forEach((section) => {
       const card = document.createElement("article");

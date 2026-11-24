@@ -309,7 +309,6 @@ button:disabled {
   margin: 0;
 }
 
-
 /* AI Summary Panel */
 .ai-summary-panel {
   background: #ffffff;
@@ -370,4 +369,331 @@ button:disabled {
 .ai-summary-panel button {
   border-radius: 8px;
   padding: 11px 20px;
+}
+
+/* Comparison completion notification */
+.completion-toast {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #166534;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.completion-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.toast-icon {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Comparison completion popup */
+.completion-toast {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #166534;
+  color: white;
+  padding: 17px 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.completion-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.toast-icon {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* Prominent no-differences message */
+.no-differences {
+  margin: 25px 0;
+  padding: 35px 25px;
+  text-align: center;
+  background: #ecfdf3;
+  border: 2px solid #86efac;
+  border-radius: 14px;
+  color: #166534;
+}
+
+.no-differences .success-icon {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.no-differences h3 {
+  font-size: 24px;
+  margin: 5px 0 12px;
+  color: #166534;
+}
+
+.no-differences p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  color: #35634a;
+}
+
+/* Search with no matching results */
+.search-no-results {
+  padding: 20px;
+  margin: 15px 0;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 10px;
+  color: #9a3412;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .completion-toast {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .no-differences {
+    padding: 25px 16px;
+  }
+
+  .no-differences h3 {
+    font-size: 21px;
+  }
+}
+
+/* ==========================================
+   DiffLens - Friendly UI Enhancement
+========================================== */
+
+/* Soft page background */
+:root {
+  background: #f5f7ff;
+  color: #25304a;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 5%, #e8eaff 0, transparent 28%),
+    radial-gradient(circle at 90% 15%, #e5f7f5 0, transparent 25%), #f5f7ff;
+  min-height: 100vh;
+}
+
+/* Main app spacing */
+.app {
+  max-width: 1100px;
+  margin: 65px auto;
+}
+
+/* Header styling */
+header {
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  display: inline-block;
+  background: #e9eaff;
+  color: #5965bd;
+  padding: 7px 13px;
+  border-radius: 20px;
+  letter-spacing: 1.2px;
+  font-size: 11px;
+}
+
+h1 {
+  font-size: clamp(34px, 5vw, 44px);
+  letter-spacing: -1.5px;
+  color: #27345a;
+  margin-top: 12px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #78839d;
+  margin-top: 10px;
+}
+
+/* URL input panel */
+.url-panel {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e5e9f5;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 35px rgba(69, 83, 140, 0.07);
+  transition: box-shadow 0.25s ease;
+}
+
+.url-panel:hover {
+  box-shadow: 0 14px 40px rgba(69, 83, 140, 0.11);
+}
+
+/* Input labels */
+.field label {
+  color: #46516f;
+  font-size: 13px;
+  margin-bottom: 9px;
+}
+
+/* URL and search inputs */
+input {
+  border: 1px solid #dce2f0;
+  border-radius: 11px;
+  padding: 14px;
+  background: #fafbff;
+  color: #29334d;
+  transition: all 0.2s ease;
+}
+
+input:hover {
+  border-color: #aeb8e8;
+  background: #ffffff;
+}
+
+input:focus {
+  outline: none;
+  border-color: #7785e5;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(119, 133, 229, 0.13);
+}
+
+/* Compare button */
+button {
+  background: linear-gradient(135deg, #6675df, #4858bb);
+  border-radius: 11px;
+  padding: 14px 23px;
+  font-size: 14px;
+  box-shadow: 0 5px 12px rgba(82, 99, 199, 0.2);
+  transition: all 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5969d2, #3949a8);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(82, 99, 199, 0.25);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Comparison toolbar */
+.toolbar {
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 5px 20px rgba(69, 83, 140, 0.05);
+}
+
+.toolbar h2 {
+  color: #303d65;
+}
+
+.hint {
+  line-height: 1.6;
+}
+
+/* Summary statistic cards */
+.stat {
+  border-radius: 11px;
+  padding: 13px 17px;
+  background: #ffffff;
+  border: 1px solid #e6eafa;
+  color: #536080;
+  box-shadow: 0 3px 10px rgba(69, 83, 140, 0.04);
+}
+
+/* Comparison section cards */
+.section-card {
+  border-radius: 14px;
+  border: 1px solid #e6eaf3;
+  box-shadow: 0 5px 18px rgba(69, 83, 140, 0.05);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.section-card:hover {
+  box-shadow: 0 8px 22px rgba(69, 83, 140, 0.09);
+}
+
+.section-title {
+  background: #f0f2ff;
+  color: #4655a0;
+  padding: 16px 19px;
+}
+
+/* Added and removed content */
+.added {
+  background: #e9f9ef;
+  border-left: 4px solid #48b879;
+  border-radius: 8px;
+}
+
+.removed {
+  background: #fff0ef;
+  border-left: 4px solid #ed7777;
+  border-radius: 8px;
+}
+
+/* Image comparison */
+.image-item {
+  border-radius: 10px;
+}
+
+/* AI Summary panel */
+.ai-summary-panel {
+  border-radius: 17px;
+  border: 1px solid #e5e9f5;
+  box-shadow: 0 6px 22px rgba(69, 83, 140, 0.06);
+}
+
+/* Responsive adjustments */
+@media (max-width: 760px) {
+  .app {
+    margin: 30px auto;
+  }
+
+  .url-panel {
+    padding: 20px;
+  }
+
+  header {
+    margin-bottom: 22px;
+  }
 }
